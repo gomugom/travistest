@@ -10,4 +10,5 @@ before_install:
   - docker build -t dudfhd705/travistest -f Dockerfile .
 
 scripts:
-  - docker run -e CI=true dudfhd705/travistest npm run start -- --coverage
+  - echo "test success"
+  - docker run -e CI=true -p 3001:3001 dudfhd705/travistest npm run build -- --coverage
