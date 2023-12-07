@@ -1,0 +1,13 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - echo "creating image with dockerfile"
+  - docker build -t dudfhd705/travistest -f Dockerfile .
+
+scripts:
+  - docker run -e CI=true dudfhd705/travistest npm run start -- --coverage
